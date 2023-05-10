@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    {% load static %}
+    {% load index %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'shopapp/style.css' %}">
+</head>
+<body>
+    <input id="basket" value="{% url 'basket' %}" hidden>
+    {% for el in products %}
+    <div class="card">
+        <p>{{ el.name }}</p>
+        <img src="{{el.image.url}}" alt="">
+        <p>{{ el.description }}</p>
+        <p>{{ el.price }}</p>
+        <form class="deleteProduct" method="POST">
+            <button class="button" value="!{{el.pk}}">delete from basket</button> 
+            <div class="amount">
+                <button class="amount__minus">-</button>
+                <button value="1" class="amount__number">{{ amounts|index:forloop.counter0 }}</button>
+                <button class="amount__plus">+</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+    <script src="{% static 'shopapp/jquery-3.6.4.js' %}"></script>
+    <script src="{% static 'shopapp/ajax.js' %}"></script>
+</body>
+</html>

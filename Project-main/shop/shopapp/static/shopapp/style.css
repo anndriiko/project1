@@ -1,0 +1,47 @@
+.amount__number {
+	pointer-events: none;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.card{
+    margin: auto;
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.deleteProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+body{
+    width: 100%;
+}

@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'shopapp/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input id="catalogUrl" value="{% url 'catalog' %}" hidden>
+    {% for i in product_list %}
+        <div class="card">
+            <p>{{ i.name }}</p>
+            <img src="{{i.image.url}}" alt="">
+            <p>{{ i.description }}</p>
+            <p>{{ i.price }}</p>
+            <form class="addProduct" method="POST">
+                <button class="button" value="!{{i.pk}}">Add to the basket</button>
+                <div class="amount">
+                    <button class="amount__minus">-</button>
+                    <button value="1" class="amount__number">1</button>
+                    <button class="amount__plus">+</button>
+                </div>
+            </form>
+        </div>
+    {% endfor %}
+    <script src="{% static 'shopapp/jquery-3.6.4.js' %}"></script>
+    <script src="{% static 'shopapp/ajax.js' %}"></script>
+</body>
+</html>
